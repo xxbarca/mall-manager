@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5024e57-98de-4f45-a56e-0226b3eda9a6" name="Changes" comment="创建分类">
+    <list default="true" id="d5024e57-98de-4f45-a56e-0226b3eda9a6" name="Changes" comment="删除分类">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(dashboard)/category/_components/category-form-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(dashboard)/category/_components/category-form-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(dashboard)/category/_services/category-mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(dashboard)/category/_services/category-mutation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(dashboard)/category/_services/use-category-mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(dashboard)/category/_services/use-category-mutation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(dashboard)/category/_types/categorySchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(dashboard)/category/_types/categorySchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(dashboard)/category/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(dashboard)/category/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/alert-dialog-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/alert-dialog-provider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +115,7 @@
       <workItem from="1758107158054" duration="6656000" />
       <workItem from="1758193789180" duration="1230000" />
       <workItem from="1758324588558" duration="4967000" />
-      <workItem from="1758329580747" duration="31000" />
+      <workItem from="1758329580747" duration="4569000" />
     </task>
     <task id="LOCAL-00001" summary="创建分类">
       <option name="closed" value="true" />
@@ -130,7 +125,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758025384783</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="删除分类">
+      <option name="closed" value="true" />
+      <created>1758329712019</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758329712019</updated>
+    </task>
+    <task id="LOCAL-00003" summary="删除分类">
+      <option name="closed" value="true" />
+      <created>1758330932961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1758330932961</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +152,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="创建分类" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建分类" />
+    <MESSAGE value="删除分类" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除分类" />
   </component>
 </project>

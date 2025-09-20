@@ -42,10 +42,10 @@ const AlertDialogProvider = () => {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel onClick={handleCancel}>
+          <AlertDialogCancel onClick={handleCancel} className={'cursor-pointer'}>
             {alertConfig.cancelLabel || "取消"}
           </AlertDialogCancel>
-          <AlertDialogAction onClick={handleConfirm}>
+          <AlertDialogAction onClick={handleConfirm} className={'cursor-pointer'}>
             {alertConfig.confirmLabel || "确认"}
           </AlertDialogAction>
         </AlertDialogFooter>

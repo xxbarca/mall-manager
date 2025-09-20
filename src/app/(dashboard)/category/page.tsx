@@ -137,7 +137,7 @@ export default function CategoryPage(): JSX.Element {
     <div className="w-full">
       <CategoryFormDialog />
       <div className="overflow-hidden rounded-md border">
-        <Table>
+        <Table className={'bg-white'}>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
