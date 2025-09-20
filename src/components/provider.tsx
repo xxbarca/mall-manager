@@ -2,7 +2,7 @@
 import React from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { toast } from "sonner";
+import { AlertDialogProvider } from "@/components/ui/alert-dialog-provider";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -28,6 +28,7 @@ export const Provider = ({ children }: ProviderProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Toaster />
+      <AlertDialogProvider />
       {children}
     </QueryClientProvider>
   );

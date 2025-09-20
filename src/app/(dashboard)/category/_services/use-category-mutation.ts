@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CategorySchema } from "@/app/(dashboard)/category/_types/categorySchema";
 import { toast } from "sonner";
 import {
-  createCategory,
+  createCategory, deleteCategory,
   updateCategory,
 } from "@/app/(dashboard)/category/_services/category-mutation";
 
@@ -32,7 +32,21 @@ const useUpdateCategory = () => {
   })
 }
 
+const useDeleteCategory = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (id: string) => {
+      await deleteCategory(id)
+    },
+    onSuccess: async () => {
+      toast.success('删除成功')
+      await queryClient.invalidateQueries({ queryKey: ["category"] });
+    }
+  })
+}
+
 export {
   useCreateCategory,
-  useUpdateCategory
+  useUpdateCategory,
+  useDeleteCategory
 }

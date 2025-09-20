@@ -6,7 +6,7 @@ import { omit } from "lodash";
 const createCategory = async (data: CategorySchema) => {
   await executeAction({
     actionFn: async () => {
-      const d = await http.post('/category', {
+      await http.post('/category', {
         ...omit(data, 'action'),
         online: data.online ? '1' : '0',
       })
@@ -25,7 +25,16 @@ const updateCategory = async (data: CategorySchema) => {
   })
 }
 
+const deleteCategory = async (id: string) => {
+  await executeAction({
+    actionFn: async () => {
+      await http.delete(`/category/${id}`)
+    }
+  })
+}
+
 export {
   createCategory,
-  updateCategory
+  updateCategory,
+  deleteCategory
 }

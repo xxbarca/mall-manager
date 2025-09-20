@@ -45,8 +45,7 @@ export const CategoryFormDialog = () => {
 
   useEffect(() => {
     if (!!selectedCategoryId && categoryQuery.data) {
-      // form.reset({...categoryQuery.data, online: categoryQuery.data.online === '1', action: 'update'})
-      form.reset(defaultCategoryValue)
+      form.reset({...categoryQuery.data, online: categoryQuery.data.online === '1', action: 'update'})
     }
   }, [selectedCategoryId, categoryQuery.data, form])
 
@@ -64,7 +63,6 @@ export const CategoryFormDialog = () => {
   }
 
   const submit: SubmitHandler<CategorySchema> = (data) => {
-    console.log(data)
     if (data.action === "create") {
       createCategoryMutation.mutate(data, {
         onSuccess: handleOnSuccess,

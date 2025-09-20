@@ -2,8 +2,8 @@ import { z } from "zod";
 const categorySchemaBase = z.object({
   index: z.number().optional(),
   name: z.string({message: '请输入分类名称'}).min(1, {message: '请输入分类名称'}),
-  img: z.string().optional(),
-  description: z.string().nullable().optional(),
+  img: z.string().optional().nullable(),
+  description: z.string().nullable(),
   online: z.boolean(),
 })
 const categorySchemaAction = z.discriminatedUnion('action', [

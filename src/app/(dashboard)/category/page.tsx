@@ -11,6 +11,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
+import { alert } from "@/lib/useGlobalStore";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -41,11 +42,13 @@ import { useCategoryPage } from "@/app/(dashboard)/category/_services/use-catego
 import { CategoryFormDialog } from "@/app/(dashboard)/category/_components/category-form-dialog";
 import { AdvancedPagination } from "@/components/Advanced/AdvancedPagination";
 import { useCategoryStore } from "@/app/(dashboard)/category/_libs/useCategoryStore";
+import { useDeleteCategory } from "@/app/(dashboard)/category/_services/use-category-mutation";
 
 export default function CategoryPage(): JSX.Element {
   const [page, setPage] = useState(1)
   const { data, status } = useCategoryPage({ page, limit: 10 });
   const {updateSelectedCategoryId, updateCategoryDialogOpen} = useCategoryStore()
+  const deleteCategoryMutation = useDeleteCategory()
   const form = useForm<PageCategorySchema>({});
 
   const handleOnEdit = (id: string) => {
@@ -100,9 +103,14 @@ export default function CategoryPage(): JSX.Element {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel onClick={() => handleOnEdit(row.original.id)}>编辑</DropdownMenuLabel>
-              <DropdownMenuItem>
-                Copy payment ID
+              <DropdownMenuLabel className={'cursor-pointer'} onClick={() => handleOnEdit((row.original as CategorySchema).id)}>编辑</DropdownMenuLabel>
+              <DropdownMenuItem className={'cursor-pointer text-red-700 font-bold'} onClick={() => {
+                alert({
+                  onConfirm: () => deleteCategoryMutation.mutate(row.original.id),
+                  description: '确认删除此条数据?'
+                });
+              }}>
+                删除
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>View customer</DropdownMenuItem>
