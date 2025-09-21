@@ -46,6 +46,7 @@ import { useCategoryStore } from "@/app/(dashboard)/category/_libs/useCategorySt
 import { useDeleteCategory } from "@/app/(dashboard)/category/_services/use-category-mutation";
 import { ControlledInput } from "@/components/Controlled/controlled-input";
 import { ControlledSelected } from "@/components/Controlled/controlled-selected";
+import { time2Time } from "@/lib/utils";
 
 export default function CategoryPage(): JSX.Element {
   const [page, setPage] = useState(1)
@@ -102,7 +103,7 @@ export default function CategoryPage(): JSX.Element {
       accessorKey: "create_time",
       header: "创建时间",
       cell: ({ row }) => (
-        <div className="lowercase">{row.getValue("create_time")}</div>
+        <div className="lowercase">{time2Time(row.getValue("create_time"))}</div>
       ),
     },
     {
