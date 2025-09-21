@@ -1,9 +1,9 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { PageCategorySchema } from "@/app/(dashboard)/category/_types/categorySchema";
 import { getCategory, getCategoryPage } from "@/app/(dashboard)/category/_services/category-query";
 import { useCategoryStore } from "@/app/(dashboard)/category/_libs/useCategoryStore";
+import { FormCategorySchema } from "@/app/(dashboard)/category/_types/categorySchema";
 
-export const useCategoryPage = (params: PageCategorySchema) => {
+export const useCategoryPage = (params: FormCategorySchema) => {
   return useQuery({
     queryKey: ["category", params],
     queryFn: () => getCategoryPage(params),

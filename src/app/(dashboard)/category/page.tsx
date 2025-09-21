@@ -49,7 +49,8 @@ import { ControlledSelected } from "@/components/Controlled/controlled-selected"
 
 export default function CategoryPage(): JSX.Element {
   const [page, setPage] = useState(1)
-  const { data, status } = useCategoryPage({ page, limit: 10 });
+  const [f, setForm] = useState<FormCategorySchema>(defaultFormCategoryValue);
+  const { data, status } = useCategoryPage({ page, limit: 10, ...f });
   const {updateSelectedCategoryId, updateCategoryDialogOpen} = useCategoryStore()
   const deleteCategoryMutation = useDeleteCategory()
   const form = useForm<FormCategorySchema>({
@@ -62,7 +63,10 @@ export default function CategoryPage(): JSX.Element {
   }
 
   const onSubmit: SubmitHandler<FormCategorySchema> = (data) => {
-    console.log(data)
+    setForm({
+      ...f,
+      ...data
+    })
   }
 
   const onReset = () => {
@@ -92,6 +96,13 @@ export default function CategoryPage(): JSX.Element {
       header: "描述",
       cell: ({ row }) => (
         <div className="lowercase">{row.getValue("description")}</div>
+      ),
+    },
+    {
+      accessorKey: "create_time",
+      header: "创建时间",
+      cell: ({ row }) => (
+        <div className="lowercase">{row.getValue("create_time")}</div>
       ),
     },
     {
@@ -148,15 +159,14 @@ export default function CategoryPage(): JSX.Element {
   }
   return (
     <div className="w-full flex flex-col">
-      <CategoryFormDialog />
-      <form onSubmit={form.handleSubmit(onSubmit)} className={'my-6'}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={'mb-6'}>
         <FormProvider {...form}>
           <div className={'grid gap-4 grid-cols-4'}>
             <div className={'col-span-1'}>
               <ControlledInput<FormCategorySchema> name={'name'} label={'分类名'} />
             </div>
             <div className={'col-span-1'}>
-              <ControlledSelected<FormCategorySchema> name={'online'} label={'状态'} options={[{value: '1', label: '上线'}, {value: '2', label: '下线'}]}/>
+              <ControlledSelected<FormCategorySchema> name={'online'} label={'状态'} options={[{value: '1', label: '上线'}, {value: '0', label: '下线'}]}/>
             </div>
             <div className={'col-span-1 flex items-end gap-4'}>
               <Button type='submit' className={'cursor-pointer'}>
@@ -165,6 +175,7 @@ export default function CategoryPage(): JSX.Element {
               <Button className={'cursor-pointer'} onClick={onReset}>
                 重置
               </Button>
+              <CategoryFormDialog />
             </div>
           </div>
         </FormProvider>
