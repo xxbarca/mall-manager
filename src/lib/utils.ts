@@ -7,6 +7,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export function time2Time(t: string, f: string = 'YYYY-MM-DD HH:mm:ss'): string {
+export function time2time(t: string, f: string = 'YYYY-MM-DD HH:mm:ss'): string {
   return dayjs(t).format(f)
 }

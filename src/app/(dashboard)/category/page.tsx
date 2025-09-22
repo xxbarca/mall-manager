@@ -30,7 +30,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { JSX, useState } from "react";
+import { JSX, Suspense, useState } from "react";
 import {
   CategorySchema,
   defaultFormCategoryValue,
@@ -46,7 +46,7 @@ import { useCategoryStore } from "@/app/(dashboard)/category/_libs/useCategorySt
 import { useDeleteCategory } from "@/app/(dashboard)/category/_services/use-category-mutation";
 import { ControlledInput } from "@/components/Controlled/controlled-input";
 import { ControlledSelected } from "@/components/Controlled/controlled-selected";
-import { time2Time } from "@/lib/utils";
+import { time2time } from "@/lib/utils";
 
 export default function CategoryPage(): JSX.Element {
   const [page, setPage] = useState(1)
@@ -103,7 +103,7 @@ export default function CategoryPage(): JSX.Element {
       accessorKey: "create_time",
       header: "创建时间",
       cell: ({ row }) => (
-        <div className="lowercase">{time2Time(row.getValue("create_time"))}</div>
+        <div className="lowercase">{time2time(row.getValue("create_time"))}</div>
       ),
     },
     {
@@ -137,9 +137,6 @@ export default function CategoryPage(): JSX.Element {
               }}>
                 删除
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         );
